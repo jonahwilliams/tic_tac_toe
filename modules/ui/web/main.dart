@@ -9,7 +9,6 @@ void main() {
   final app = new App(input.stream, document.getElementById('app'), Space.x);
   final output = app.output;
   output.listen((b) {
-    print(b);
     input.add(b);
     app.switchPlayer();
   });
