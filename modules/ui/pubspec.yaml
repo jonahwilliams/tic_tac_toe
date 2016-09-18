@@ -1,8 +1,13 @@
 name: tic_tac_toe.ui
 
 dependencies:
+  browser: '>=0.10.0 <0.11.0'
+  dart_to_js_script_rewriter: '^1.0.1'
   tic_tac_toe.net:
     path: ../net
   tic_tac_toe.state:
     path: ../state
 
+
+transformers:
+- dart_to_js_script_rewriter
