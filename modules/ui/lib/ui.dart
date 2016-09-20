@@ -55,7 +55,7 @@ class App {
 
   /// updates the class and text values for each cell.
   void _update() {
-    final spaces = _board.values;
+    final spaces = _board.toValues();
     for (int i = 0; i < 9; i++) {
       final cell = _cells[i];
       final space = spaces[i];
@@ -80,9 +80,10 @@ class App {
   /// Prevents moving on other players turns and on invalid spaces.
   void _handle(MouseEvent e) {
     final target = e.target;
+    final values = _board.toValues();
     if (target is Element && !_locked && _board.getTurn() == _player) {
       final key = int.parse(target.id);
-      if (_board.values[key] == Space.empty) {
+      if (values[key] == Space.empty) {
         _output.add(_board.move(key % 3, key ~/ 3));
         _locked = true;
       }

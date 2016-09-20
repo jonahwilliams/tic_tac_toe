@@ -87,8 +87,7 @@ class Board {
   }
 
   /// Returns a flat list over the values of the board.
-  List<Space> get values =>
-      _spaces.fold/*<List<Space>>*/([], (acc, x) => acc..addAll(x));
+  List<Space> toValues() => _spaces.expand((x) => x);
 
   /// Return what [Space] should go next.
   ///
